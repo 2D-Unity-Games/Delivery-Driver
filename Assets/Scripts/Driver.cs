@@ -6,11 +6,6 @@ public class Driver : MonoBehaviour
 {
 	[SerializeField] float steerSpeed;
 	[SerializeField] float moveSpeed;
-	
-	private void Start()
-	{
-		
-	}
 
 	private void Update()
 	{
