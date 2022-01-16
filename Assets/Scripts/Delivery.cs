@@ -4,23 +4,37 @@ using UnityEngine;
 
 public class Delivery : MonoBehaviour
 {
-	bool hasPackage;
+	[SerializeField] float destroyDelay;
+	[SerializeField] Color32 hasPackageColor;
+	[SerializeField] Color32 noPackageColor;
 	
-	private void OnCollisionEnter2D(Collision2D other) {
+	bool hasPackage;
+	SpriteRenderer spriteRenderer;
+	
+	private void Start() {
+		spriteRenderer = GetComponent<SpriteRenderer>();
+	}
+	
+	private void OnCollisionEnter2D(Collision2D other) 
+	{
 		Debug.Log("Im collided");
 	}
 	
-	private void OnTriggerEnter2D(Collider2D other) {
-		if (other.tag == "Package")
+	private void OnTriggerEnter2D(Collider2D other) 
+	{
+		if (other.tag == "Package" && !hasPackage)
 		{
 			Debug.Log("Package picked up");
 			hasPackage = true;
+			Destroy(other.gameObject, destroyDelay);
+			spriteRenderer.color = hasPackageColor;
 		}
 		
-		if (hasPackage && other.tag == "Package")
+		if (hasPackage && other.tag == "Customer")
 		{
-			Debug.Log("Im triggered");
+			Debug.Log("Package Delivered");
 			hasPackage = false;
+			spriteRenderer.color = noPackageColor;
 		}
 	}
 }

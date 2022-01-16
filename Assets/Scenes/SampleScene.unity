@@ -652,7 +652,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adc7a9fe142d34713964d73f239fee42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyDelay: 0
+  destroyDelay: 2
+  hasPackageColor:
+    serializedVersion: 2
+    rgba: 4289603540
+  noPackageColor:
+    serializedVersion: 2
+    rgba: 4291744116
 --- !u!1 &1030855225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1732,8 +1738,8 @@ GameObject:
   - component: {fileID: 1996136753}
   - component: {fileID: 1996136752}
   m_Layer: 0
-  m_Name: Package (2)
-  m_TagString: Package
+  m_Name: Customer
+  m_TagString: Customer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
